@@ -1,4 +1,4 @@
- # [READ THE FINAL SECTION CAREFULL](https://github.com/VoKhoi2208/tx/edit/main/README.md#important-attention](https://github.com/VoKhoi2208/tx?tab=readme-ov-file#important-attention) #
+ # [READ THE FINAL SECTION CAREFULL](https://github.com/VoKhoi2208/tx?tab=readme-ov-file#important-attention) #
 # BETTING GAME
 An simple interesting betting game. Just for fun
 
