@@ -1,170 +1,177 @@
 #include <bits/stdc++.h>
 using namespace std;
-string nameuser="Guest";
-long long sodu;
+string nameuser = "Guest";
+long long sodu = 0;
 long long nap;
-bool ktmoney(int n){
-    if(sodu>0){
-        return true;
+bool ktmoney() {
+    return sodu > 0;
+}
+
+void welcome() {
+    cout << "===============================" << endl;
+    cout << "    WELCOME TO MINIGAME" << endl;
+    cout << "Hi '" << nameuser << "' welcome" << endl;
+    cout << "Your balance: " << sodu << "$" << endl;
+}
+
+void homepage() {
+    cout << "=============================" << endl;
+    cout << "ENTER YOUR CHOICE" << endl;
+    cout << "1).Setup profile" << endl;
+    cout << "2).Check your balance" << endl;
+    cout << "3).Deposit money" << endl;
+    cout << "4).Start game" << endl;
+    cout << "5).Exit" << endl;
+    cout << "6).Credit" << endl;
+    cout << "WARNING!!! PLEASE READ THE CONTENT IN THE CREDIT" << endl;
+    cout << "=============================" << endl;
+}
+
+void setupprofile() {
+    cout << endl << "=============================" << endl;
+    cout << "SET UP PROFILE ZONE" << endl;
+    cout << "Hi welcome to Setup profile page" << endl;
+    cout << "Let's tell us your name: ";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin, nameuser);
+    cout << "I will remember, your name is " << nameuser << endl;
+    cout << "Thank you so much" << endl << endl;
+}
+
+void checkmoney() {
+    cout << endl << "The current amount is: " << sodu << "$" << endl << endl;
+}
+
+void addmoney() {
+    cout << endl << "=============================" << endl;
+    cout << "     BANK" << endl;
+    cout << "Enter amount you want add to your account: ";
+    cin >> nap;
+    if (nap < 0) {
+        cout << "Invalid amount!" << endl;
+        return;
     }
-    else{
-        return false;
-    }
+    cout << "Successful manipulation" << endl;
+    cout << "Received successfully " << nap << "$ into " << nameuser << " account" << endl;
+    sodu += nap;
+    cout << "Total current balance: " << sodu << "$" << endl << endl;
 }
-void welcome(){
-    cout<<"===============================";
-    cout<<endl<<"    WELCOME TO MINIGAME"<<endl;
-    cout<<"Hi "<<"'"<<nameuser<<"' "<<"welcome"<<endl;
-    cout<<"Your balance: "<<sodu<<endl;
-}
-void homepage(){
-    cout<<"=============================";
-    cout<<endl<<"ENTER YOUR CHOOSE";
-    cout<<endl<<"1).Setup profile";
-    cout<<endl<<"2).Check your balance";
-    cout<<endl<<"3).Deposit money";
-    cout<<endl<<"4).Start game";
-    cout<<endl<<"5).Exit";
-    cout<<endl<<"6).Credit";
-    cout<<endl<<"WARNING!!! PLEASE READ THE CONTENT IN THE CREDIT";
-    cout<<endl<<"==============================="<<endl;
-}
-void setupprofile(){
-    cout<<endl<<"==============================="<<endl;
-    cout<<"SET UP PROFILE ZONE"<<endl;
-    cout<<"Hi welcome to Setup profile page"<<endl;
-    cout<<"Let's tell us your name";
-    cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
-    cout<<" ";
-    getline(cin,nameuser);
-    cout<<endl<<"I will remember,your name is "<<nameuser<<endl;
-    cout<<"Thank you so much"<<endl<<endl;
-}
-void checkmoney(){
-    cout<<endl<<"The current amount is: "<<sodu<<"$";
-    cout<<endl<<endl;
-    cout<<endl<<"==============================="<<endl;
-}
-void addmoney(){
-    cout<<endl<<"==============================="<<endl;
-    cout<<"     BANK"<<endl;
-    cout<<"Enter amount you want add to your account "<<endl;
-    cin>>nap;
-    cout<<"Successful manipulation"<<endl;
-    cout<<"Received successfully "<<nap<<"$ into "<<nameuser<<" accout";
-    sodu+=nap;
-    cout<<"Total current balance "<<sodu<<"$";
-    cout<<endl<<endl;
-}
-void credit(){
-        cout<<endl;
-        cout<<"==================================";
-        cout<<endl<<"          **CREDIT PAGE**";
-        cout<<endl<<"    ***PLEASE READ IT CAREFULLY***";
-        cout<<endl<<"_____";
-        cout<<endl<<"1).This project is just for fun.#J4F";
-        cout<<endl<<"2).The project has NO incentive to gamble";
-        cout<<endl<<"3).Project written by K at NQD High School FTG"<<endl;
-        cout<<"=================================="<<endl<<endl<<endl;
-}
-void pl(){
-    cout<<endl;
-        cout<<"=================================="<<endl;
-        cout<<"Checking your balance"<<endl;
-        if(ktmoney(sodu)==0){
-            cout<<"The balance is not enough";
-            cout<<endl<<"Redirect to Home";
-            cout<<endl<<"=================================="<<endl<<endl;
-            return homepage();
-        }else{
 
-            while(sodu!=0){
-                    int round1=0;
-                if(sodu>0){
-                        round1++;
-                    cout<<"Round: "<<round1<<endl;
-                    cout<<"Balance: "<<sodu<<endl;
-                    cout<<"Enter value you want to bet: ";
-                    int bet=0;
-                    int c1=0,c2=0,c3=0;
-                    cin>>bet;
-                    int s=0;
-                    int roll=0,roll2=0,roll3=0;
-                    c1=rand()%1000+1;
-                    c2=rand()%1000+1;
-                    c3=rand()%1000+1;
-
-                    s=c1+c2+c3;
-                    cout<<"Roll 1 "<<c1<<endl;
-                    cout<<"Roll 2 "<<c2<<endl;
-                    cout<<"Roll 3 "<<c3<<endl;
-                    cout<<"Sum all round: "<<s;
-                    if(s%2==0){
-                        cout<<endl<<"YOU WIN";
-                        sodu=sodu+(bet*2);
-                    }
-                    else{
-                        sodu-=bet;
-                        if(sodu<0){
-                            cout<<endl<<"Your amount to low,Return Home";
-                            return homepage();
-                        }
-                    }
-                }
-            }
-
-        }
+void credit() {
+    cout << endl << "==================================" << endl;
+    cout << "          **CREDIT PAGE**" << endl;
+    cout << "    ***PLEASE READ IT CAREFULLY***" << endl;
+    cout << "1).This project is just for fun. #J4F" << endl;
+    cout << "2).The project has NO incentive to gamble" << endl;
+    cout << "3).Project written by Khoi" << endl;
+    cout << "==================================" << endl << endl << endl;
 }
-int main(){
+
+int random1() {
+    return rand();
+}
+
+int random2() {
+    return rand() % (50 - 3 + 1) + 3;
+}
+
+int main() {
+    srand(time(NULL));
+
     welcome();
     homepage();
-    int luachon=0;
-    cout<<"Enter your choose: ";
-    cin>>luachon;
-    while(luachon>6){
-        cout<<"__________"<<endl;
-        cout<<"Wrong syntax!"<<endl;
-        cout<<"Your choice is "<<luachon<<endl;
-        cout<<"You will be redirected to Home";
-        cout<<endl<<"Your choices range from 1 to 6 only"<<endl<<endl;
-        cout<<endl<<"You have been redirected to Home,choose again"<<endl<<endl;
+    int luachon = 0;
+    cout << "Enter your choice: ";
+    cin >> luachon;
+
+    if (luachon < 1 || luachon > 6) {
+        cout << "Invalid choice! Please choose between 1 and 6." << endl;
         return main();
     }
 
-    while(luachon<1){
-        cout<<"__________"<<endl;
-        cout<<"Wrong syntax!"<<endl;
-        cout<<"Your choice is "<<luachon<<endl;
-        cout<<"You will be redirected to Home";
-        cout<<endl<<"Your choices range from 1 to 6 only"<<endl<<endl;
-        cout<<endl<<"You have been redirected to Home,choose again"<<endl<<endl;
-        return main();
-    }
-    if(luachon==1){
-        setupprofile();
-        return main();
-    }
-    if(luachon==2){
-        checkmoney();
-        return main();
-    }
-    if(luachon==3){
-        addmoney();
-        return main();
-    }
-    if(luachon==5){
-        cout<<"Thank you,see you later"<<"'"<<nameuser<<"'";
-        cout<<endl<<endl<<endl<<endl;
-        return 0;
-    }
-    if(luachon==6){
-        credit();
-        main();
+    switch (luachon) {
+        case 1:
+            setupprofile();
+            return main();
+        case 2:
+            checkmoney();
+            return main();
+        case 3:
+            addmoney();
+            return main();
+        case 4:
+            cout << endl << "==================================" << endl;
+            cout << "          **PLAY ZONE**" << endl;
+            if (!ktmoney()) {
+                cout << "Your balance is not enough, please top up." << endl;
+                addmoney();
+                return main();
+            } else {
+                char betchosse;
+                cout << "Type 'c' for even and 'l' for odd: ";
+                cin >> betchosse;
+                if (betchosse != 'c' && betchosse != 'l') {
+                    cout << "Invalid choice! Please choose 'c' or 'l'." << endl;
+                    return main();
+                }
 
-    }
+                cout << "Type the amount you want to bet: ";
+                int betamount;
+                cin >> betamount;
+                if (betamount <= 0 || betamount > sodu) {
+                    cout << "Invalid bet amount!" << endl;
+                    return main();
+                }
 
-    if(luachon==4){
-        pl();
-    }
+                int bet3 = random1();
+                int bet4 = random2();
+                cout << "Round 1: " << bet3 << endl;
+                cout << "Round 2: " << bet4 << endl;
+                cout << "Result: " << bet3 + bet4 << endl;
 
+                if ((bet3 + bet4) % 2 == 0) {
+                    if (betchosse == 'c') {
+                        cout << "YOU WIN" << endl;
+                        sodu += betamount;
+                    } else {
+                        cout << "YOU LOSE" << endl;
+                        sodu -= betamount;
+                    }
+                } else {
+                    if (betchosse == 'l') {
+                        cout << "YOU WIN" << endl;
+                        sodu += betamount;
+                    } else {
+                        cout << "YOU LOSE" << endl;
+                        sodu -= betamount;
+                    }
+                }
+
+                int choice;
+                cout << "1. Continue playing" << endl;
+                cout << "2. Back to main menu" << endl;
+                cout << "3. Exit" << endl;
+                cout << "Enter your choice: ";
+                cin >> choice;
+
+                switch (choice) {
+                    case 1:
+                        return main();
+                    case 2:
+                        return main();
+                    case 3:
+                        return 0;
+                    default:
+                        cout << "Invalid choice! Exiting..." << endl;
+                        return 0;
+                }
+            }
+            break;
+        case 5:
+            cout << "Thank you, see you later '" << nameuser << "'" << endl << endl << endl << endl;
+            break;
+        case 6:
+            credit();
+            break;
+    }
 }
