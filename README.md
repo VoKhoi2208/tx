@@ -56,7 +56,7 @@ The code is not yet complete, just Tested.
 See in the game when you run it
 
 # IMPORTANT ATTENTION #
-This project **does not support, encourage, contribute or defend illegal gambling actions**. In case this project is investigated by agencies under the Ministry of Public Security (or political organizations,similarly serving the state SRV), I affirm that I am **not** involved with other groups or individuals who use my project to engage in illegal activities. This is **open code and anyone can use i**t. **I also confirm** that I do not support their legal actions.
+This project **does not support, encourage, contribute or defend illegal gambling actions**.I affirm that I am **not** involved with other groups or individuals who use my project to engage in illegal activities. This is **open code and anyone can use i**t. **I also confirm** that I do not support their legal actions.
 
 
 
